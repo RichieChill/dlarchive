@@ -1,0 +1,110 @@
+# dlarchive.php
+
+`dlarchive.php` is a PHP script designed to download all files associated with an Internet Archive item to a specified directory. It leverages the `curl.exe` utility, included with the script, for HTTP requests. This tool is tailored for use in a Windows command-line environment and is distributed under the MIT license.
+
+---
+
+## Features
+
+- Downloads all files from an Internet Archive item's `*_files.xml` file.
+- Simple and efficient, leveraging `curl.exe` for reliable file transfers.
+- Easily configurable and ready to use in Windows environments.
+
+---
+
+## What is an Internet Archive Item?
+
+An **Internet Archive item** is a single entry in the Internet Archive's collection, representing a specific piece of content such as books, software, music, movies, or more. Each item has associated metadata and content files, which can be accessed via the Internet Archive website.
+
+For example, an item might include:
+- Text files, such as scanned books.
+- Media files, such as MP3s or MP4s.
+- Software files, such as disk images.
+
+Each item is uniquely identified by a slug in its URL (e.g., `https://archive.org/details/[identifier]`), and the `*_files.xml` file provides a list of all files associated with that item.
+
+---
+
+## Requirements
+
+- **PHP** installed on your system.
+- Windows operating system.
+- Command-line access.
+- `curl.exe` and its associated files included in the script directory:
+  - `curl-ca-bundle.crt`
+  - `libcurl-x64.def`
+  - `libcurl-x64.dll`
+
+---
+
+## Installation
+
+1. Download the `dlarchive.php` script and place it in a directory of your choice.
+2. Ensure the following files are in the same directory as the script:
+   - `curl.exe`
+   - `curl-ca-bundle.crt`
+   - `libcurl-x64.def`
+   - `libcurl-x64.dll`
+3. Verify that PHP is installed and added to your system's PATH.
+
+---
+
+## Usage
+
+Run the script from the Windows command line as follows:
+
+```bash
+php dlarchive.php [directory_path] [url_to_files.xml]
+```
+
+### Parameters
+- **`[directory_path]`**: The path to the directory where the downloaded files will be saved. This must be a valid path on your system.
+- **`[url_to_files.xml]`**: The URL to the `*_files.xml` file of the desired Internet Archive item. This file contains a list of all downloadable files in the item.
+
+### Finding the XML File
+An item's XML file can be found by browsing to the desired item on archive.org. Under "Download Options" on the right side of the page, click "SHOW ALL." Then find the file that ends in `_files.xml`.
+
+### Example
+
+```bash
+php dlarchive.php "C:\Downloads\ArchiveFiles" "https://archive.org/download/example_item/example_item_files.xml"
+```
+
+---
+
+## License
+
+This script is distributed under the MIT License. See below for details:
+
+```
+MIT License
+
+Copyright (c) [Year] [Your Name]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+---
+
+## Notes
+
+- Ensure that the target directory has sufficient write permissions.
+- If the script encounters issues downloading files, verify that the `curl.exe` utility and its associated files are correctly placed and functional.
+- Internet Archive items and their contents are subject to their respective usage rights and licenses. Verify that you have the right to download and use the files before proceeding.
+
